@@ -22,11 +22,14 @@ class Cli
 
     def user_selection(cocktail)
         input = gets.strip
-        if input == "1" || input.include?("Proper") || input.include?("proper") || input.include?("Glass") || input.include?("glass")
+        1 = ["1. Proper glass", "1", "Proper", "proper", "Glass", "glass"]
+        2 = ["2. Ingredients", "2", "Ingredients", "ingredients"]
+        3 = ["3. Instructions", "3", "Instructions", "instructions"]
+        if 1.include?(input)
             puts "The proper glass for #{cocktail.name}s is a #{cocktail.glass}."
-        elsif input == "2" || input.include?("Ingredients") || input.include?("ingredients")
+        elsif 2.include?(input)
             puts "The ingredients necessary to make a #{cocktail.name} include: #{}."
-        elsif input == "3" || input.include?("Instructions") || input.include?("instructions")
+        elsif 3.include?(input)
             puts "Instructions to make a #{cocktail.name} are as follows: #{cocktail.instructions}."
         else 
             puts "Your selection was invalid."
