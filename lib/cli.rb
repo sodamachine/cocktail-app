@@ -11,6 +11,5 @@ class Cli
         #do something with the ingredient
         Api.get_cocktail_by_name
     end
-
-
+    
 end
