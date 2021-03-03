@@ -1,5 +1,5 @@
 class Cocktail
-    attr_accessor :name, :glass, :instructions
+    attr_accessor :name, :glass, :instructions, :ingredients, :measurements
 
     def initialize(hash)
         hash.each do |key, value|

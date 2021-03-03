@@ -10,5 +10,6 @@ class Cli
         input = gets.strip
         new_cocktail = Api.get_cocktail_by_name(input)
     end
+
     
 end
