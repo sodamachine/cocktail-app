@@ -8,10 +8,10 @@ bundle install
 ```
 
 ## Usage
-[Click this link]() to see a brief description on how to use the program: YouTube demo of [Cocktail-App](https://youtube.com)
+Click this link to see a brief description on how to use the program: YouTube demo of [Cocktail-App](https://youtu.be/2C-PSGfvcGU)
 
 ## Contributing
-Bug reports and pull requests are welcome via GitHub at [https://github.com/stephohn/cocktail-app](https://github.com/stephohn/cocktail-app). This project is intended for open collaboration and educational purposes. Contributors are welcomed. Please make sure to update tests as appropriate.
+Bug reports and pull requests are welcome via GitHub at [https://github.com/stephohn/cocktail-app](https://github.com/stephohn/cocktail-app). This project is intended for open collaboration and educational purposes. Contributors are welcomed.
 
 ## License
 This application is available as open source.
