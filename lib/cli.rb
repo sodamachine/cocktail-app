@@ -8,13 +8,16 @@ class Cli
     def prompt_for_cocktail
         puts "Please enter a keyword and/or name of a cocktail you'd like to learn more about."
         input = gets.strip
-        cocktails = Api.get_cocktails_by_name(input)
-        if cocktails
-            self.cocktail_options
+        if Cocktail.find_by_name(input)
+            cocktails = Cocktail.all
         else
-            self.invalid
-            self.prompt_for_cocktail
+            cocktails = Api.get_cocktails_by_name(input)
+            if !cocktails
+                self.invalid
+                self.prompt_for_cocktail
+            end
         end
+        self.cocktail_options
     end
 
     def cocktail_options

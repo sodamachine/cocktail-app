@@ -14,4 +14,10 @@ class Cocktail
         @@all
     end
 
+    def self.find_by_name(input)
+        self.all.find do |cocktail|
+            cocktail.strDrink.downcase.include?(input.downcase)
+        end
+    end
+
 end
