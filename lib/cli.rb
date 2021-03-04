@@ -8,16 +8,13 @@ class Cli
     def prompt_for_cocktail
         puts "Please enter a keyword and/or name of a cocktail you'd like to learn more about."
         input = gets.strip
-        if Cocktail.find_by_name(input)
-            cocktails = Cocktail.all
+        cocktails = Api.get_cocktails_by_name(input)
+        if cocktails
+            self.cocktail_options
         else
-            cocktails = Api.get_cocktails_by_name(input)
-            if !cocktails
-                self.invalid
-                self.prompt_for_cocktail
-            end
+            self.invalid
+            self.prompt_for_cocktail
         end
-        self.cocktail_options
     end
 
     def cocktail_options
@@ -68,7 +65,6 @@ class Cli
     def more_options(cocktail)
         puts "Type 'back' to return to the list of options for the #{cocktail.strDrink}."
         puts "Type 'more' to see the other cocktails from your search results."
-        puts "Type 'new' if you'd like to search for a new cocktail."
         puts "Type 'exit' to exit the application."
         self.user_selects_option(cocktail)
     end
@@ -79,8 +75,6 @@ class Cli
             self.info_options(cocktail)
         elsif input.downcase == "more"
             self.cocktail_options
-        elsif input.downcase == "new"
-            self.prompt_for_cocktail
         else
             puts "Goodbye!"
             return
