@@ -12,7 +12,7 @@ class Cli
         if cocktails
             self.cocktail_options
         else
-            puts "Your selection was invalid."
+            self.invalid
             self.prompt_for_cocktail
         end
     end
@@ -31,7 +31,7 @@ class Cli
             cocktail = Cocktail.all[input-1]
             self.info_options(cocktail)
         else
-            puts "Your selection was invalid."
+            self.invalid
             self.cocktail_options
         end
     end
@@ -53,9 +53,13 @@ class Cli
         elsif input == "3" || input.downcase.include?("instructions")
             puts "Instructions to make a #{cocktail.strDrink} are as follows: #{cocktail.strInstructions}."
         else 
-            puts "Your selection was invalid."
+            self.invalid
         end
         self.more_options(cocktail)
+    end
+
+    def invalid
+        puts "Your selection was invalid."
     end
 
     def more_options(cocktail)
