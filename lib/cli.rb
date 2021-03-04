@@ -20,6 +20,12 @@ class Cli
         self.user_selects_cocktail
     end
 
+    def user_selects_cocktail
+        input = gets.strip.to_i
+        selection = Cocktail.all[input-1]
+        self.info_options(selection)
+    end
+
     def info_options(selection)
         puts "FYI: Select what information you'd like to find out about a #{selection.strDrink}."
         puts "1. Proper glass"
