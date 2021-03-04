@@ -22,13 +22,18 @@ class Cli
         Cocktail.all.each.with_index(1) do |cocktail, i|
             puts "#{i}. #{cocktail.strDrink}"
         end
-        self.user_selects_cocktail
+        self.user_selects_cocktail(Cocktail.all.size)
     end
 
-    def user_selects_cocktail
+    def user_selects_cocktail(i)
         input = gets.strip.to_i
-        cocktail = Cocktail.all[input-1]
-        self.info_options(cocktail)
+        if (1..i).include?(input)
+            cocktail = Cocktail.all[input-1]
+            self.info_options(cocktail)
+        else
+            puts "Your selection was invalid."
+            self.cocktail_options
+        end
     end
 
     def info_options(cocktail)
@@ -55,7 +60,7 @@ class Cli
 
     def more_options(cocktail)
         puts "Type 'back' to return to the list of options for the #{cocktail.strDrink}."
-        puts "Type 'more' to see other cocktails from your search results."
+        puts "Type 'more' to see the other cocktails from your search results."
         puts "Type 'new' if you'd like to search for a new cocktail."
         puts "Type 'exit' to exit the application."
         self.user_selects_option(cocktail)
