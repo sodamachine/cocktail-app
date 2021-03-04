@@ -12,8 +12,16 @@ class Cli
         self.cocktail_options
     end
 
-    def cocktail_options(cocktail)
-        puts "Choose from the following list for more details about #{cocktail.name}s."
+    def cocktail_options
+        puts "Choose a cocktail: Enter the number that corresponds with the cocktail for more details."
+        Cocktail.all.each.with_index(1) do |cocktail, i|
+            puts "#{i}. #{cocktail.strDrink}"
+        end
+        self.user_selects_cocktail
+    end
+
+    def info_options(selection)
+        puts "FYI: Select what information you'd like to find out about a #{selection.strDrink}."
         puts "1. Proper glass"
         puts "2. Ingredients"
         puts "3. Instructions"
