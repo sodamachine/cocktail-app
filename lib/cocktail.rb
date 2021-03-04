@@ -1,5 +1,5 @@
 class Cocktail
-    attr_accessor :strDrink, :strGlass, :strInstructions
+    attr_accessor :strDrink, :strGlass, :strCategory, :strInstructions
 
     @@all = []
 

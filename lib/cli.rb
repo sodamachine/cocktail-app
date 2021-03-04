@@ -22,32 +22,32 @@ class Cli
 
     def user_selects_cocktail
         input = gets.strip.to_i
-        selection = Cocktail.all[input-1]
-        self.info_options(selection)
+        cocktail = Cocktail.all[input-1]
+        self.info_options(cocktail)
     end
 
-    def info_options(selection)
-        puts "FYI: Select what information you'd like to find out about a #{selection.strDrink}."
-        puts "1. Proper glass"
-        puts "2. Ingredients"
-        puts "3. Instructions"
-        self.user_selection(cocktail)
+    def info_options(cocktail)
+        puts "FYI: Select what information you'd like to find out about the #{cocktail.strDrink}."
+        puts "1. Glass"
+        puts "2. Category"
+        puts "2. Instructions"
+        self.user_selects_info(cocktail)
     end
 
-    def user_selection(cocktail)
+    def user_selects_info(cocktail)
         input = gets.strip
-        a = ["1. Proper glass", "1", "Proper", "proper", "Glass", "glass"]
-        b = ["2. Ingredients", "2", "Ingredients", "ingredients"]
+        a = ["1. Glass", "1", "Glass", "glass"]
+        b = ["2. Category", "2", "Category", "category"]
         c = ["3. Instructions", "3", "Instructions", "instructions"]
         if a.include?(input)
-            puts "The proper glass for #{cocktail.name}s is a #{cocktail.glass}."
+            puts "The proper glass for a #{cocktail.strDrink} is a #{cocktail.strGlass}."
         elsif b.include?(input)
-            puts "The ingredients necessary to make a #{cocktail.name} include: #{}."
+            puts "The #{cocktail.strDrink} is part of the #{cocktail.strCategory} category."
         elsif c.include?(input)
-            puts "Instructions to make a #{cocktail.name} are as follows: #{cocktail.instructions}."
+            puts "Instructions to make a #{cocktail.strDrink} are as follows: #{cocktail.strInstructions}."
         else 
             puts "Your selection was invalid."
-            self.cocktail_options(cocktail)
+            self.prompt_for_cocktail
         end
     end
 
